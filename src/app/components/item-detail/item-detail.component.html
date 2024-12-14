@@ -1,0 +1,27 @@
+<div *ngIf="item">
+    <div class="product-card-container">
+        <p-card class="product-card">
+            <div class="product-content">
+              <i class="pi pi-arrow-left align-self-start" style="font-size: 30px;" [routerLink]="['/supermarket']"></i>
+            <!-- Imagen del producto -->
+            <img
+              [src]="item.src"
+              alt="Producto"
+              class="product-image"
+            />
+      
+            <!-- Detalles del producto -->
+            <div class="product-details">
+                <div class="product-header">
+                    <h2>{{ item.name }}</h2>
+                </div>
+              <p>{{ item.description }}</p>
+              <p><strong>Precio:</strong> {{ item.price }}</p>
+              <p><strong>Disponible:</strong> {{ item.stock }} unidades</p>
+              <p *ngIf="item.madeInCanarias" class="product-origin"><strong>Etiqueta de origen:</strong> <img src="./../../../assets/img/elaborado_canarias.png"></p>
+              <button pButton type="button" label="Agregar al carrito" (click)="onAddItem()" [disabled]="item.inCart"></button>
+            </div>
+          </div>
+        </p-card>
+      </div>
+</div>
