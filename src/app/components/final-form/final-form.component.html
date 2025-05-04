@@ -1,0 +1,42 @@
+<div class="flex flex-column align-items-center" *ngIf="questions">
+  <div class="wrapper m-2">
+    <h1>
+      {{ currentQuestionIndex + 1 }}.
+      {{ questions[currentQuestionIndex].question }}
+    </h1>
+    <div
+      *ngFor="let answer of answers; let i = index"
+      class="flex align-items-center gap-1 mb-2"
+    >
+      <p-radioButton
+        name="question"
+        [value]="i + 1"
+        [(ngModel)]="questions[currentQuestionIndex].userAnswer"
+        inputId="question"
+      />
+      <label for="question" class="ml-2"> {{ answer }} </label>
+    </div>
+  </div>
+  <div class="flex m-5 justify-content-between w-full">
+    <p-button
+      [ngStyle]="{
+        visibility: currentQuestionIndex > 0 ? 'visible' : 'hidden',
+      }"
+      (onClick)="currentQuestionIndex = currentQuestionIndex - 1"
+      >Atrás</p-button
+    >
+    <p-button
+      [ngStyle]="{
+        visibility:
+          currentQuestionIndex < questions.length - 1 ? 'visible' : 'hidden',
+      }"
+      (onClick)="currentQuestionIndex = currentQuestionIndex + 1"
+      >Avanzar</p-button
+    >
+    <p-button
+      *ngIf="currentQuestionIndex === questions.length - 1"
+      (onClick)="showResult()"
+      >Finalizar</p-button
+    >
+  </div>
+</div>

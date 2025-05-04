@@ -1,0 +1,26 @@
+<p-card>
+  <form [formGroup]="loginForm" class="flex flex-column gap-2">
+    <div class="flex flex-column gap-1">
+      <label>Rol</label>
+      <p-dropdown
+        [options]="roles"
+        formControlName="user"
+        optionLabel="name"
+        dataKey="value"
+        optionValue="value"
+        placeholder="Selecciona un rol"
+      />
+    </div>
+    <div *ngIf="showPassword" class="flex flex-column gap-1">
+      <label>Contraseña</label>
+      <p-password formControlName="password"></p-password>
+    </div>
+    <div class="flex flex-column">
+      <p-button
+        label="Iniciar sesión"
+        [disabled]="!loginForm.valid"
+        (click)="doLogin()"
+      ></p-button>
+    </div>
+  </form>
+</p-card>
