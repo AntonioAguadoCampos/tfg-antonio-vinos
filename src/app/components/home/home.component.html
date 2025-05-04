@@ -1,8 +1,0 @@
-<div *ngFor="let article of info; let i = index" class="menu">
-    <div [@fadeInOut] *ngIf="i === currentInfoIndex">
-        <p>{{article}}</p>
-        <a [routerLink]="['supermarket']">
-            <p-button [@fadeInOut] *ngIf="info.length - 1 === i && i === currentInfoIndex">Iniciar compra <i class="pi pi-angle-double-right"></i></p-button>
-        </a>
-    </div>
-</div>

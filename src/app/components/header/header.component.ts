@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuItem } from 'primeng/api';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
